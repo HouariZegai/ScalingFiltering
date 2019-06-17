@@ -1,0 +1,39 @@
+* {
+    -fx-font-family: Tahoma
+}
+
+.root {
+    -fx-background-color: #FFF
+}
+
+.title {
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, #2196f3 50%);
+    -fx-font-size: 30px;
+}
+
+.sub-title {
+    -fx-font-size: 17px;
+    -fx-text-fill: #333;
+}
+
+.radio {
+    -fx-font-size: 17px;
+    -fx-cursor: hand;
+    -fx-text-fill: #333;
+}
+
+.btn {
+    -fx-font-size: 15;
+    -fx-font-weight: bold;
+    -fx-background-color: #2196f3;
+    -fx-background-radius: 5;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-padding: 10px 20px;
+    -jfx-button-type: RAISED
+}
+
+.btn:hover {
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
