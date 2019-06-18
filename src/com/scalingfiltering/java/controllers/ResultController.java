@@ -29,6 +29,10 @@ public class ResultController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // init
+        NUMBER_OF_COLUMNS = 50;
+        NUMBER_OF_ROWS = 50;
+
         initTableSim();
         loadTableSim();
 
@@ -40,7 +44,7 @@ public class ResultController implements Initializable {
         colsSim = new JFXTreeTableColumn[NUMBER_OF_COLUMNS];
 
         for(int i = 0; i < NUMBER_OF_COLUMNS; i++) {
-            colsSim[i] = new JFXTreeTableColumn<>("Item" + i);
+            colsSim[i] = new JFXTreeTableColumn<>("Item" + (i + 1));
             colsSim[i].setPrefWidth(80);
             final int num = i;
             colsSim[i].setCellValueFactory((TreeTableColumn.CellDataFeatures<Rating, String> param) -> param.getValue().getValue().p[num]);
@@ -75,7 +79,7 @@ public class ResultController implements Initializable {
         colsPreduction = new JFXTreeTableColumn[NUMBER_OF_COLUMNS];
 
         for(int i = 0; i < NUMBER_OF_COLUMNS; i++) {
-            colsPreduction[i] = new JFXTreeTableColumn<>("Item" + i);
+            colsPreduction[i] = new JFXTreeTableColumn<>("Item" + (i + 1));
             colsPreduction[i].setPrefWidth(80);
             final int num = i;
             colsPreduction[i].setCellValueFactory((TreeTableColumn.CellDataFeatures<Rating, String> param) -> param.getValue().getValue().p[num]);
