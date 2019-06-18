@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.emojione.EmojiOneView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane stylesheets="@../css/result.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.scalingfiltering.java.controllers.StatisticController">
+   <children>
+      <Label styleClass="title" text="Statistics" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets top="10.0" />
+         </StackPane.margin>
+      </Label>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="600.0" prefWidth="700.0">
+         <StackPane.margin>
+            <Insets top="50.0" />
+         </StackPane.margin>
+         <content>
+            <VBox alignment="TOP_CENTER" prefHeight="630.0" prefWidth="655.0" spacing="10.0">
+               <children>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Label styleClass="sub-title" text="Average Error" />
+                        <LineChart fx:id="lineChartError" prefHeight="300.0" prefWidth="655.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Label styleClass="sub-title" text="Hardware speed comparaison" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </VBox>
+                  <BarChart fx:id="barChartHardComp">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children>
+            </VBox>
+         </content>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </ScrollPane>
+      <EmojiOneView glyphName="X" onMouseClicked="#onClose" size="20" styleClass="icon-close" wrappingWidth="14.0" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="15.0" top="15.0" />
+         </StackPane.margin>
+      </EmojiOneView>
+   </children>
+</StackPane>
