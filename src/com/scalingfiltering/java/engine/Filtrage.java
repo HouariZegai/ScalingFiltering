@@ -24,7 +24,7 @@ public class Filtrage {
     static int[][] w; // calssmesnt of semilarité
     static float[] tab_m; // table of moyen
     static float[] som_w; // some de weit(semilarité)
-    static float[] moy_err; // moyenne d'erreur
+    public static float[] moy_err; // moyenne d'erreur
 
     static float s = 0;
     static float v = 0;
@@ -89,20 +89,6 @@ public class Filtrage {
 
             }
             lineNo++;
-        }
-        //System.out.println("####### : "+mat.get(1).get(0));
-        /*   mat.forEach(e->{
-                       System.out.println("####### : "+e.get(0));
-
-           });*/
-        for (int i = 1; i < 100; i++) {
-            System.out.println();
-
-            for (int j = 1; j < 100; j++) {
-
-                System.out.print(tab[i][j] + "|");
-            }
-
         }
     }
 
@@ -281,22 +267,22 @@ public class Filtrage {
             }
         }
         // System.out.println( "" );
-        System.out.println("matrice de préduction ");
+        System.out.println("Calcule matrice de préduction ");
         for (int l = 1; l < i; l++) {
-            System.out.println("");
+            //System.out.println("");
             for (int k = 1; k < j; k++) {
                 if (tab_p[l][k] == 0) {
                     tab_p[l][k] = tab[l][k];
                 } else {
                     tab_p[l][k] = ((float) (Math.round(tab_p[l][k] * 100)) / 100);
                 }
-                System.out.print("__" + tab_p[l][k]);
+                //System.out.print("__" + tab_p[l][k]);
             }
         }
     }
 
     public static void calcAverageError() {
-        System.out.println("moyen d'erreur ");
+        System.out.println("Calculate moyen d'erreur !");
         for (int l = 1; l < i; l++) {
             double n, err = 0;
             for (int k = 1; k < j; k++) {
@@ -307,7 +293,9 @@ public class Filtrage {
                 }
             }
             moy_err[l] = (float) err / tab_m[l];
-            System.out.println(moy_err[l] + "|");
+            if(String.valueOf(moy_err[l]).equalsIgnoreCase("NaN"))
+                moy_err[l] = 0f;
+            //System.out.println(moy_err[l] + "|");
         }
     }
 }
