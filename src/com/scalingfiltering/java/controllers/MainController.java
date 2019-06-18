@@ -8,13 +8,16 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -37,7 +40,9 @@ public class MainController implements Initializable {
     @FXML
     private JFXButton btnCalculate, btnViewStatistic;
 
-    FileChooser fileChooser;
+    private FileChooser fileChooser;
+
+    public static JFXDialog dialogResult, dialogStatistic;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -102,13 +107,35 @@ public class MainController implements Initializable {
 
     @FXML
     void onCalculate() {
-        Filtrage.calcPreduction();
+        if(radio50.isSelected()) {
+            Filtrage.calculate(50, 50);
+        } else if(radio100.isSelected()) {
+            Filtrage.calculate(100, 100);
+        } else if(radio200.isSelected()) {
+            Filtrage.calculate(200, 200);
+        } else {
+            Filtrage.calculate(700, 200000);
+        }
+
+        try {
+            StackPane resultView = FXMLLoader.load(getClass().getResource("/com/scalingfiltering/resources/views/Result.fxml"));
+            dialogResult = new JFXDialog(root, resultView, JFXDialog.DialogTransition.CENTER);
+            dialogResult.show();
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        }
 
         btnViewStatistic.setDisable(false);
     }
 
     @FXML
     void onViewStatistic() {
-
+        try {
+            StackPane statisticView = FXMLLoader.load(getClass().getResource("/com/scalingfiltering/resources/views/Statistic.fxml"));
+            dialogStatistic = new JFXDialog(root, statisticView, JFXDialog.DialogTransition.CENTER);
+            dialogStatistic.show();
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        }
     }
 }
