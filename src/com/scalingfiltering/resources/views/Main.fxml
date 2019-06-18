@@ -26,7 +26,7 @@
                               <JFXSpinner fx:id="spinnerWait" prefHeight="31.0" prefWidth="35.0" visible="false" />
                            </children>
                         </HBox>
-                                <JFXTreeTableView fx:id="tableView" prefHeight="400.0" prefWidth="911.0" />
+                                <JFXTreeTableView fx:id="tableView" prefHeight="520.0" prefWidth="911.0" />
                             </children>
                         </VBox>
                         <VBox spacing="15.0">
@@ -59,7 +59,7 @@
                 </HBox>
             </children>
             <padding>
-                <Insets bottom="40.0" left="20.0" right="20.0" top="20.0" />
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
         </VBox>
     </children>

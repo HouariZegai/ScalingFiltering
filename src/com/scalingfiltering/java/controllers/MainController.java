@@ -44,6 +44,9 @@ public class MainController implements Initializable {
 
     public static JFXDialog dialogResult, dialogStatistic;
 
+    private static final int NUMBER_OF_COLUMNS = 50;
+    private static final int NUMBER_OF_ROWS = 100;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // init file chooser
@@ -56,10 +59,10 @@ public class MainController implements Initializable {
     }
 
     private void initTable() {
-        colP = new JFXTreeTableColumn[30];
+        colP = new JFXTreeTableColumn[NUMBER_OF_COLUMNS];
 
-        for(int i = 0; i < 30; i++) {
-            colP[i] = new JFXTreeTableColumn<>("Item" + i);
+        for(int i = 0; i < NUMBER_OF_COLUMNS; i++) {
+            colP[i] = new JFXTreeTableColumn<>("Item " + i);
             colP[i].setPrefWidth(80);
             final int num = i;
             colP[i].setCellValueFactory((TreeTableColumn.CellDataFeatures<Rating, String> param) -> param.getValue().getValue().p[num]);
@@ -73,9 +76,9 @@ public class MainController implements Initializable {
     private void loadTable() { // load data to table
         ObservableList<Rating> ratings = FXCollections.observableArrayList();
 
-        for(int i = 0; i < 100; i++) {
+        for(int i = 0; i < NUMBER_OF_ROWS; i++) {
             Rating rating = new Rating();
-            for(int j = 0; j < 30; j++) {
+            for(int j = 0; j < NUMBER_OF_COLUMNS; j++) {
                 rating.p[j] = new SimpleStringProperty(String.valueOf(Filtrage.tab[i][j]));
             }
 
@@ -108,14 +111,20 @@ public class MainController implements Initializable {
     @FXML
     void onCalculate() {
         if(radio50.isSelected()) {
-            Filtrage.calculate(50, 50);
+            ResultController.NUMBER_OF_COLUMNS = 50;
+            ResultController.NUMBER_OF_ROWS = 50;
         } else if(radio100.isSelected()) {
-            Filtrage.calculate(100, 100);
+            ResultController.NUMBER_OF_COLUMNS = 100;
+            ResultController.NUMBER_OF_ROWS = 100;
         } else if(radio200.isSelected()) {
-            Filtrage.calculate(200, 200);
+            ResultController.NUMBER_OF_COLUMNS = 200;
+            ResultController.NUMBER_OF_ROWS = 200;
         } else {
-            Filtrage.calculate(700, 200000);
+            ResultController.NUMBER_OF_COLUMNS = 700;
+            ResultController.NUMBER_OF_ROWS = 200000;
         }
+
+        Filtrage.calculate(ResultController.NUMBER_OF_COLUMNS, ResultController.NUMBER_OF_ROWS);
 
         try {
             StackPane resultView = FXMLLoader.load(getClass().getResource("/com/scalingfiltering/resources/views/Result.fxml"));
