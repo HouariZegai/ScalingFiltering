@@ -41,6 +41,7 @@
                                         </JFXRadioButton>
                                         <JFXRadioButton fx:id="radio100" styleClass="radio" text="100x100" toggleGroup="$tglRadio" />
                                         <JFXRadioButton fx:id="radio200" styleClass="radio" text="200x200" toggleGroup="$tglRadio" />
+                                        <JFXRadioButton fx:id="radio500" styleClass="radio" text="500x500" toggleGroup="$tglRadio" />
                                         <JFXRadioButton fx:id="radioAll" selected="true" styleClass="radio" text="All" toggleGroup="$tglRadio" />
                                     </children>
                                 </VBox>

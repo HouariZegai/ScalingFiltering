@@ -35,7 +35,7 @@ public class MainController implements Initializable {
     private JFXSpinner spinnerWait;
 
     @FXML
-    private JFXRadioButton radio50, radio100, radio200, radioAll;
+    private JFXRadioButton radio50, radio100, radio200, radio500, radioAll;
 
     @FXML
     private JFXButton btnCalculate, btnViewStatistic;
@@ -95,17 +95,15 @@ public class MainController implements Initializable {
 
     @FXML
     void onLoadCSV() {
+        spinnerWait.setVisible(true);
         File file = fileChooser.showOpenDialog(root.getScene().getWindow());
         if(file != null) {
-            spinnerWait.setVisible(true);
 
             Filtrage.loadTable(file);
             loadTable();
-
-            spinnerWait.setVisible(false);
-            btnCalculate.setDisable(false);
         }
-
+        spinnerWait.setVisible(false);
+        btnCalculate.setDisable(false);
     }
 
     @FXML
@@ -119,6 +117,9 @@ public class MainController implements Initializable {
         } else if(radio200.isSelected()) {
             ResultController.NUMBER_OF_COLUMNS = 200;
             ResultController.NUMBER_OF_ROWS = 200;
+        } else if(radio500.isSelected()) {
+            ResultController.NUMBER_OF_COLUMNS = 500;
+            ResultController.NUMBER_OF_ROWS = 500;
         } else {
             ResultController.NUMBER_OF_COLUMNS = 700;
             ResultController.NUMBER_OF_ROWS = 200000;
@@ -139,6 +140,10 @@ public class MainController implements Initializable {
 
     @FXML
     void onViewStatistic() {
+        // calaculate average error
+        Filtrage.calcAverageError();
+
+        // load statistic view
         try {
             StackPane statisticView = FXMLLoader.load(getClass().getResource("/com/scalingfiltering/resources/views/Statistic.fxml"));
             dialogStatistic = new JFXDialog(root, statisticView, JFXDialog.DialogTransition.CENTER);
