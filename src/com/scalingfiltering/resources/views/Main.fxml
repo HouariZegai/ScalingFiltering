@@ -7,6 +7,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
@@ -15,7 +17,16 @@
     <children>
         <VBox alignment="TOP_CENTER" spacing="30.0">
             <children>
-                <Label styleClass="title" text="Scaling Filtering System" />
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity">
+               <children>
+                      <Label styleClass="title" text="Scaling Filtering System" />
+                  <ImageView fitHeight="55.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Preloader.gif" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
                 <HBox spacing="20.0">
                     <children>
                         <VBox spacing="10.0">
@@ -23,7 +34,12 @@
                         <HBox spacing="10.0">
                            <children>
                                       <JFXButton onAction="#onLoadCSV" ripplerFill="#0cbaff" styleClass="btn" text="Load CSV" />
-                              <JFXSpinner fx:id="spinnerWait" prefHeight="31.0" prefWidth="35.0" visible="false" />
+                              <HBox fx:id="boxWaitLoad" alignment="CENTER_LEFT" spacing="10.0" visible="false">
+                                 <children>
+                                    <JFXSpinner prefHeight="31.0" prefWidth="35.0" />
+                                    <Label styleClass="lbl-calc" text="Loading data, please wait..." />
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
                                 <JFXTreeTableView fx:id="tableView" prefHeight="520.0" prefWidth="911.0" />
@@ -51,6 +67,12 @@
                                         <JFXButton fx:id="btnViewStatistic" disable="true" onAction="#onViewStatistic" ripplerFill="#0cbaff" styleClass="btn" text="View Statistic" />
                                     </children>
                                 </HBox>
+                        <HBox fx:id="boxWaitCalc" alignment="CENTER_LEFT" maxWidth="-Infinity" spacing="10.0" visible="false">
+                           <children>
+                              <JFXSpinner prefHeight="45.0" prefWidth="45.0" />
+                              <Label styleClass="lbl-calc" text="Calculating data please wait..." />
+                           </children>
+                        </HBox>
                             </children>
                             <HBox.margin>
                                 <Insets top="50.0" />

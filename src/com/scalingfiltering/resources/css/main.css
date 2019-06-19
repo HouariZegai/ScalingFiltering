@@ -19,7 +19,7 @@
 .radio {
     -fx-font-size: 17px;
     -fx-cursor: hand;
-    -fx-text-fill: #333;
+    -fx-text-fill: #444;
 }
 
 .btn {
@@ -36,4 +36,9 @@
 .btn:hover {
     -fx-scale-x: 1.02;
     -fx-scale-y: 1.02;
+}
+
+.lbl-calc {
+    -fx-font-size: 15px;
+    -fx-text-fill: #333;
 }

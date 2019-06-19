@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 
@@ -32,13 +33,13 @@ public class MainController implements Initializable {
     private JFXTreeTableColumn<Rating, String>[] colP;
 
     @FXML
-    private JFXSpinner spinnerWait;
-
-    @FXML
     private JFXRadioButton radio50, radio100, radio200, radio500, radioAll;
 
     @FXML
     private JFXButton btnCalculate, btnViewStatistic;
+
+    @FXML
+    private HBox boxWaitCalc, boxWaitLoad;
 
     private FileChooser fileChooser;
 
@@ -62,7 +63,7 @@ public class MainController implements Initializable {
         colP = new JFXTreeTableColumn[NUMBER_OF_COLUMNS];
 
         for(int i = 0; i < NUMBER_OF_COLUMNS; i++) {
-            colP[i] = new JFXTreeTableColumn<>("Item " + i);
+            colP[i] = new JFXTreeTableColumn<>("Item " + (i + 1));
             colP[i].setPrefWidth(80);
             final int num = i;
             colP[i].setCellValueFactory((TreeTableColumn.CellDataFeatures<Rating, String> param) -> param.getValue().getValue().p[num]);
@@ -95,19 +96,21 @@ public class MainController implements Initializable {
 
     @FXML
     void onLoadCSV() {
-        spinnerWait.setVisible(true);
+        boxWaitLoad.setVisible(true);
         File file = fileChooser.showOpenDialog(root.getScene().getWindow());
         if(file != null) {
 
             Filtrage.loadTable(file);
             loadTable();
         }
-        spinnerWait.setVisible(false);
+        boxWaitLoad.setVisible(false);
         btnCalculate.setDisable(false);
     }
 
     @FXML
     void onCalculate() {
+        boxWaitCalc.setVisible(true);
+
         if(radio50.isSelected()) {
             ResultController.NUMBER_OF_COLUMNS = 50;
             ResultController.NUMBER_OF_ROWS = 50;
@@ -135,6 +138,7 @@ public class MainController implements Initializable {
             ioe.printStackTrace();
         }
 
+        boxWaitCalc.setVisible(false);
         btnViewStatistic.setDisable(false);
     }
 
