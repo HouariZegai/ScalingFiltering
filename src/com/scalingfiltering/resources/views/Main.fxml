@@ -55,10 +55,10 @@
                                                 <ToggleGroup fx:id="tglRadio" />
                                             </toggleGroup>
                                         </JFXRadioButton>
-                                        <JFXRadioButton fx:id="radio100" styleClass="radio" text="100x100" toggleGroup="$tglRadio" />
+                                        <JFXRadioButton fx:id="radio100" styleClass="radio" text="100x100" toggleGroup="$tglRadio" selected="true" />
                                         <JFXRadioButton fx:id="radio200" styleClass="radio" text="200x200" toggleGroup="$tglRadio" />
                                         <JFXRadioButton fx:id="radio500" styleClass="radio" text="500x500" toggleGroup="$tglRadio" />
-                                        <JFXRadioButton fx:id="radioAll" selected="true" styleClass="radio" text="All" toggleGroup="$tglRadio" />
+                                        <JFXRadioButton fx:id="radioAll" styleClass="radio" text="All" toggleGroup="$tglRadio" />
                                     </children>
                                 </VBox>
                                 <HBox spacing="10.0">

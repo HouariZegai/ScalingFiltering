@@ -5,9 +5,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-
 
 <StackPane stylesheets="@../css/result.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.scalingfiltering.java.controllers.ResultController">
    <children>
@@ -21,8 +21,14 @@
             <Insets top="50.0" />
          </StackPane.margin>
          <content>
-            <VBox alignment="TOP_CENTER" prefHeight="630.0" prefWidth="655.0" spacing="10.0">
+            <VBox prefHeight="630.0" prefWidth="655.0" spacing="10.0">
                <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label styleClass="lbl-exe-time" text="Execution Time: " />
+                        <Label fx:id="lblExeTime" styleClass="lbl-exe-time-value" text="30 MS" />
+                     </children>
+                  </HBox>
                   <VBox spacing="10.0">
                      <children>
                         <Label styleClass="sub-title" text="Simularité" />
