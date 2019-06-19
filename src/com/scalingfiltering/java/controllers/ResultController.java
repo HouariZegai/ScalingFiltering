@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 
@@ -21,6 +22,9 @@ public class ResultController implements Initializable {
 
     @FXML
     private JFXTreeTableView tableSim, tablePreduction;
+
+    @FXML
+    private Label lblExeTime;
 
     private JFXTreeTableColumn<Rating, String>[] colsSim, colsPreduction;
 
@@ -33,6 +37,8 @@ public class ResultController implements Initializable {
         NUMBER_OF_COLUMNS = 50;
         NUMBER_OF_ROWS = 50;
 
+        lblExeTime.setText(MainController.executionTime + " ms");
+
         initTableSim();
         loadTableSim();
 
@@ -44,11 +50,13 @@ public class ResultController implements Initializable {
         colsSim = new JFXTreeTableColumn[NUMBER_OF_COLUMNS];
 
         for(int i = 0; i < NUMBER_OF_COLUMNS; i++) {
-            colsSim[i] = new JFXTreeTableColumn<>("Item" + (i + 1));
+            colsSim[i] = new JFXTreeTableColumn<>("Item" + i);
             colsSim[i].setPrefWidth(80);
             final int num = i;
             colsSim[i].setCellValueFactory((TreeTableColumn.CellDataFeatures<Rating, String> param) -> param.getValue().getValue().p[num]);
         }
+
+        colsSim[0].setText("");
 
         tableSim.getColumns().addAll(colsSim);
         tableSim.setShowRoot(false);
@@ -58,10 +66,21 @@ public class ResultController implements Initializable {
     private void loadTableSim() { // load data to table
         ObservableList<Rating> ratings = FXCollections.observableArrayList();
 
+        if(Filtrage.tab_s.length <= NUMBER_OF_ROWS) {
+            NUMBER_OF_ROWS = Filtrage.tab_s.length - 1;
+        }
+
+        if(Filtrage.tab_s[0].length <= NUMBER_OF_COLUMNS) {
+            NUMBER_OF_COLUMNS = Filtrage.tab_s[0].length - 1;
+        }
+
         for(int i = 0; i < NUMBER_OF_ROWS; i++) {
             Rating rating = new Rating();
-            for(int j = 0; j < NUMBER_OF_COLUMNS; j++) {
-                rating.p[j] = new SimpleStringProperty(String.valueOf(Filtrage.tab_s[i][j]));
+
+            rating.p[0] = new SimpleStringProperty("User " + (i + 1));
+
+            for(int j = 1; j < NUMBER_OF_COLUMNS; j++) {
+                rating.p[j] = new SimpleStringProperty(String.valueOf(Filtrage.tab_s[i + 1][j + 1]));
             }
 
             ratings.add(rating);
@@ -85,6 +104,8 @@ public class ResultController implements Initializable {
             colsPreduction[i].setCellValueFactory((TreeTableColumn.CellDataFeatures<Rating, String> param) -> param.getValue().getValue().p[num]);
         }
 
+        colsPreduction[0].setText("");
+
         tablePreduction.getColumns().addAll(colsPreduction);
         tablePreduction.setShowRoot(false);
 
@@ -95,8 +116,11 @@ public class ResultController implements Initializable {
 
         for(int i = 0; i < NUMBER_OF_ROWS; i++) {
             Rating rating = new Rating();
-            for(int j = 0; j < NUMBER_OF_COLUMNS; j++) {
-                rating.p[j] = new SimpleStringProperty(String.valueOf(Filtrage.tab_p[i][j]));
+
+            rating.p[0] = new SimpleStringProperty("User " + (i + 1));
+
+            for(int j = 1; j < NUMBER_OF_COLUMNS; j++) {
+                rating.p[j] = new SimpleStringProperty(String.valueOf(Filtrage.tab_p[i + 1][j + 1]));
             }
 
             ratings.add(rating);
