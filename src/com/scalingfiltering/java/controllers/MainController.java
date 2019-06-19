@@ -48,6 +48,8 @@ public class MainController implements Initializable {
     private static final int NUMBER_OF_COLUMNS = 50;
     private static final int NUMBER_OF_ROWS = 100;
 
+    public static int executionTime;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // init file chooser
@@ -63,11 +65,13 @@ public class MainController implements Initializable {
         colP = new JFXTreeTableColumn[NUMBER_OF_COLUMNS];
 
         for(int i = 0; i < NUMBER_OF_COLUMNS; i++) {
-            colP[i] = new JFXTreeTableColumn<>("Item " + (i + 1));
+            colP[i] = new JFXTreeTableColumn<>("Item " + i);
             colP[i].setPrefWidth(80);
             final int num = i;
             colP[i].setCellValueFactory((TreeTableColumn.CellDataFeatures<Rating, String> param) -> param.getValue().getValue().p[num]);
         }
+
+        colP[0].setText("");
 
         tableView.getColumns().addAll(colP);
         tableView.setShowRoot(false);
@@ -79,8 +83,11 @@ public class MainController implements Initializable {
 
         for(int i = 0; i < NUMBER_OF_ROWS; i++) {
             Rating rating = new Rating();
-            for(int j = 0; j < NUMBER_OF_COLUMNS; j++) {
-                rating.p[j] = new SimpleStringProperty(String.valueOf(Filtrage.tab[i][j]));
+
+            rating.p[0] = new SimpleStringProperty("User " + (i + 1));
+
+            for(int j = 1; j < NUMBER_OF_COLUMNS; j++) {
+                rating.p[j] = new SimpleStringProperty(String.valueOf(Filtrage.tab[i + 1][j + 1]));
             }
 
             ratings.add(rating);
@@ -128,7 +135,11 @@ public class MainController implements Initializable {
             ResultController.NUMBER_OF_ROWS = 200000;
         }
 
+        long startTime = System.currentTimeMillis();
+
         Filtrage.calculate(ResultController.NUMBER_OF_COLUMNS, ResultController.NUMBER_OF_ROWS);
+
+        executionTime = (int) (System.currentTimeMillis() - startTime);
 
         try {
             StackPane resultView = FXMLLoader.load(getClass().getResource("/com/scalingfiltering/resources/views/Result.fxml"));
