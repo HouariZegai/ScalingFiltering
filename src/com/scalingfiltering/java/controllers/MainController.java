@@ -2,6 +2,7 @@ package com.scalingfiltering.java.controllers;
 
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import com.scalingfiltering.java.App;
 import com.scalingfiltering.java.engine.Filtrage;
 import com.scalingfiltering.java.model.Rating;
 import javafx.beans.property.SimpleStringProperty;
@@ -11,11 +12,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
@@ -163,6 +166,18 @@ public class MainController implements Initializable {
             StackPane statisticView = FXMLLoader.load(getClass().getResource("/com/scalingfiltering/resources/views/Statistic.fxml"));
             dialogStatistic = new JFXDialog(root, statisticView, JFXDialog.DialogTransition.CENTER);
             dialogStatistic.show();
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onBack() {
+        try {
+            HBox homeView = FXMLLoader.load(getClass().getResource("/com/scalingfiltering/resources/views/Home.fxml"));
+            ((Stage) root.getScene().getWindow()).setScene(new Scene(homeView));
+
+            App.centerOnScreen();
         } catch(IOException ioe) {
             ioe.printStackTrace();
         }

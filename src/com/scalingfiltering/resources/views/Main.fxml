@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXSpinner?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -55,7 +56,7 @@
                                                 <ToggleGroup fx:id="tglRadio" />
                                             </toggleGroup>
                                         </JFXRadioButton>
-                                        <JFXRadioButton fx:id="radio100" styleClass="radio" text="100x100" toggleGroup="$tglRadio" selected="true" />
+                                        <JFXRadioButton fx:id="radio100" selected="true" styleClass="radio" text="100x100" toggleGroup="$tglRadio" />
                                         <JFXRadioButton fx:id="radio200" styleClass="radio" text="200x200" toggleGroup="$tglRadio" />
                                         <JFXRadioButton fx:id="radio500" styleClass="radio" text="500x500" toggleGroup="$tglRadio" />
                                         <JFXRadioButton fx:id="radioAll" styleClass="radio" text="All" toggleGroup="$tglRadio" />
@@ -85,5 +86,13 @@
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
         </VBox>
+      <JFXButton contentDisplay="RIGHT" onAction="#onBack" prefWidth="104.0" style="-fx-pref-width: 105;" styleClass="btn" text="Back" StackPane.alignment="TOP_RIGHT">
+         <graphic>
+            <FontAwesomeIconView fill="#eeeeee" glyphName="SIGN_OUT" size="25" styleClass="btn" />
+         </graphic>
+         <StackPane.margin>
+            <Insets right="20.0" top="20.0" />
+         </StackPane.margin>
+      </JFXButton>
     </children>
 </StackPane>
