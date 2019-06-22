@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<HBox fx:id="root" alignment="CENTER" spacing="20.0" stylesheets="@../css/home.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.scalingfiltering.java.controllers.HomeController">
+   <children>
+      <VBox alignment="CENTER" maxWidth="-Infinity" spacing="70.0">
+         <children>
+            <VBox spacing="20.0">
+               <children>
+                  <Label styleClass="title" text="Scaling Filtering" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txt-desc" text="Develop a desktop application that use agents to get all the information about the PC's neighboring it." wrappingWidth="393.337890625" />
+               </children>
+            </VBox>
+            <HBox alignment="TOP_RIGHT" spacing="20.0">
+               <children>
+                  <JFXButton onAction="#onStart" styleClass="btn" text="START" />
+               </children>
+            </HBox>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets bottom="100.0" left="20.0" />
+         </padding>
+      </VBox>
+      <ImageView fitHeight="575.0" fitWidth="533.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/18908.png" />
+         </image>
+      </ImageView>
+   </children>
+   <padding>
+      <Insets bottom="90.0" left="20.0" top="100.0" />
+   </padding>
+</HBox>
