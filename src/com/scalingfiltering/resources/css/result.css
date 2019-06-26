@@ -36,3 +36,11 @@
     -fx-cursor: hand;
     -fx-fill: #FF3D22
 }
+
+.field {
+    -jfx-unfocus-color: #333;
+    -jfx-focus-color: #2196f3;
+    -jfx-label-float: true;
+    -fx-font-size: 16px;
+    -fx-prompt-text-fill: #999
+}

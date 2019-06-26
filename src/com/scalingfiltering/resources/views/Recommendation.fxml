@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.emojione.EmojiOneView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane stylesheets="@../css/result.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.scalingfiltering.java.controllers.RecommendationController">
+   <children>
+      <Label styleClass="title" text="Recommendation" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets top="10.0" />
+         </StackPane.margin>
+      </Label>
+      <EmojiOneView glyphName="X" onMouseClicked="#onClose" size="20" styleClass="icon-close" wrappingWidth="14.0" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="15.0" top="15.0" />
+         </StackPane.margin>
+      </EmojiOneView>
+      <VBox alignment="TOP_CENTER" spacing="10.0">
+         <children>
+            <StackPane maxHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0">
+               <children>
+                  <Label styleClass="sub-title" text="Id of table recommended" StackPane.alignment="BOTTOM_CENTER" />
+                  <JFXTextField fx:id="fieldUser" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Type user" styleClass="field" StackPane.alignment="BOTTOM_LEFT" />
+               </children>
+            </StackPane>
+            <JFXTreeTableView fx:id="tableRecom" prefHeight="514.0" prefWidth="655.0" />
+         </children>
+         <StackPane.margin>
+            <Insets top="50.0" />
+         </StackPane.margin>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</StackPane>
