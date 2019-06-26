@@ -11,7 +11,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
@@ -39,14 +38,14 @@ public class MainController implements Initializable {
     private JFXRadioButton radio50, radio100, radio200, radio500, radioAll;
 
     @FXML
-    private JFXButton btnCalculate, btnViewStatistic;
+    private JFXButton btnCalculate, btnViewStatistic, btnViewRecom;
 
     @FXML
     private HBox boxWaitCalc, boxWaitLoad;
 
     private FileChooser fileChooser;
 
-    public static JFXDialog dialogResult, dialogStatistic;
+    public static JFXDialog dialogResult, dialogStatistic, dialogRecommendation;
 
     private static final int NUMBER_OF_COLUMNS = 50;
     private static final int NUMBER_OF_ROWS = 100;
@@ -154,6 +153,7 @@ public class MainController implements Initializable {
 
         boxWaitCalc.setVisible(false);
         btnViewStatistic.setDisable(false);
+        btnViewRecom.setDisable(false);
     }
 
     @FXML
@@ -166,6 +166,18 @@ public class MainController implements Initializable {
             StackPane statisticView = FXMLLoader.load(getClass().getResource("/com/scalingfiltering/resources/views/Statistic.fxml"));
             dialogStatistic = new JFXDialog(root, statisticView, JFXDialog.DialogTransition.CENTER);
             dialogStatistic.show();
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+
+    @FXML
+    void onViewRecommendation() {
+        // load recommendation view
+        try {
+            StackPane recomView = FXMLLoader.load(getClass().getResource("/com/scalingfiltering/resources/views/Recommendation.fxml"));
+            dialogRecommendation = new JFXDialog(root, recomView, JFXDialog.DialogTransition.CENTER);
+            dialogRecommendation.show();
         } catch(IOException ioe) {
             ioe.printStackTrace();
         }

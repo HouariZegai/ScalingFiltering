@@ -68,6 +68,11 @@
                                         <JFXButton fx:id="btnViewStatistic" disable="true" onAction="#onViewStatistic" ripplerFill="#0cbaff" styleClass="btn" text="View Statistic" />
                                     </children>
                                 </HBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <JFXButton fx:id="btnViewRecom" disable="true" onAction="#onViewRecommendation" prefWidth="264.0" ripplerFill="#0cbaff" styleClass="btn" text="View Recommendation" />
+                           </children>
+                        </HBox>
                         <HBox fx:id="boxWaitCalc" alignment="CENTER_LEFT" maxWidth="-Infinity" spacing="10.0" visible="false">
                            <children>
                               <JFXSpinner prefHeight="45.0" prefWidth="45.0" />
