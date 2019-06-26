@@ -12,6 +12,12 @@
     -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, #2196f3 50%);
 }
 
+.lbl-date {
+    -fx-font-size: 22px;
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, #2196f3 50%);
+    -fx-effect: dropshadow(two-pass-box, #EEE, 2, 2, 1, 2);
+}
+
 .txt-desc {
     -fx-font-size: 18px;
     -fx-fill: #65617d;
