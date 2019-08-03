@@ -77,7 +77,7 @@ public class RecommendationController implements Initializable {
             rating.p[0] = new SimpleStringProperty("User " + (i + 1));
 
             for(int j = 1; j < NUMBER_OF_COLUMNS; j++) {
-                rating.p[j] = new SimpleStringProperty(String.valueOf(Filtrage.tab_recom[i + 1][j + 1]));
+                rating.p[j] = new SimpleStringProperty(String.valueOf(Filtrage.tab_recom[i + 1][j + 1] == 0f ? "" : Filtrage.tab_recom[i + 1][j + 1]));
             }
 
             ratings.add(rating);

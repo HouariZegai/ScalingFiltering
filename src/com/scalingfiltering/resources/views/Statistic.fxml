@@ -30,10 +30,10 @@
                         <Label styleClass="sub-title" text="Average Error" />
                         <LineChart fx:id="lineChartError" prefHeight="300.0" prefWidth="655.0">
                           <xAxis>
-                            <CategoryAxis side="BOTTOM" />
+                            <CategoryAxis side="BOTTOM" label="Number of niebers" />
                           </xAxis>
                           <yAxis>
-                            <NumberAxis side="LEFT" />
+                            <NumberAxis side="LEFT" label="Times" />
                           </yAxis>
                         </LineChart>
                      </children>

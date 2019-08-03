@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.Parent;
 
 public class MainController implements Initializable {
 
@@ -186,7 +187,7 @@ public class MainController implements Initializable {
     @FXML
     public void onBack() {
         try {
-            HBox homeView = FXMLLoader.load(getClass().getResource("/com/scalingfiltering/resources/views/Home.fxml"));
+            Parent homeView = FXMLLoader.load(getClass().getResource("/com/scalingfiltering/resources/views/Home.fxml"));
             ((Stage) root.getScene().getWindow()).setScene(new Scene(homeView));
 
             App.centerOnScreen();

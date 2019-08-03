@@ -20,7 +20,7 @@
                   <VBox spacing="20.0">
                      <children>
                         <Label styleClass="title" text="Scaling Filtering" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txt-desc" text="Develop a desktop application that use agents to get all the information about the PC's neighboring it." wrappingWidth="393.337890625" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txt-desc" text="Scaling in Cloud Computing Filtering (Recommendation System)." wrappingWidth="393.337890625" />
                      </children>
                   </VBox>
                   <HBox alignment="TOP_RIGHT" spacing="20.0">
@@ -35,7 +35,7 @@
             </VBox>
             <ImageView fitHeight="575.0" fitWidth="533.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/18908.png" />
+                  <Image url="@../images/home_bg.png" />
                </image>
             </ImageView>
          </children>
