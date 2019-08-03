@@ -1,5 +1,5 @@
 # Scaling Filtering System
-Passage à l'échelle dans un filtrage via le Cloud Computing (Recommendation System :heavy_check_mark:).
+Scaling in Cloud Computing Filtering (Recommendation System :heavy_check_mark:).
 
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -33,10 +33,3 @@ Statistics           |
 ### Contributing 💡
 If you want to contribute to this project and make it better with new ideas, your pull request is very welcomed.
 If you find any issue just put it in the repository issue section, thank you.
-
-### Follow me 🎯
-[LinkedIn](https://www.linkedin.com/in/houarizegai) |
-[Facebook](https://www.facebook.com/HZegai) |
-[Youtube](https://www.youtube.com/HouariZegai) |
-[Twitter](https://www.twitter.com/HouariZegai) |
-[Instagram](https://www.instagram.com/HouariZegai)
